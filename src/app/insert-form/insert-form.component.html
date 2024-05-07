@@ -1,0 +1,55 @@
+<div class="form-div">
+  <form [formGroup]="formData" (submit)="onSubmit()">
+    <div class="form-group">
+      <label for="exampleInputEmail1">model name</label>
+      <input
+        formControlName="modelName"
+        type="text"
+        class="form-control"
+        placeholder="Enter Model Name"
+      />
+      <!-- <small  class="form-text text-muted"
+        >We'll never share your email with anyone else.</small
+      > -->
+    </div>
+
+    <div class="form-group">
+      <label>brand name</label>
+      <select
+        formControlName="brandName"
+        class="form-select"
+        aria-label="Default select example"
+      >
+        <option *ngFor="let brandName of brandData" [value]="brandName">
+          {{ brandName }}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>bike CC</label>
+      <input
+        formControlName="bikeCC"
+        type="number"
+        class="form-control"
+        placeholder="Enter CC"
+      />
+    </div>
+
+    <div class="form-group">
+      <label>category</label>
+      <select
+        formControlName="category"
+        class="form-select"
+        aria-label="Default select example"
+      >
+        <option *ngFor="let cate of categoryData" [value]="cate">
+          {{ cate }}
+        </option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  <p>{{ formData.value | json }}</p>
+</div>
